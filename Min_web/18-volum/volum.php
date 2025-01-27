@@ -27,7 +27,7 @@ for ($h = 0.1; $h <= min($bredde, $lengde) / 2; $h += 0.1) {
     <h1>Resultat</h1>
     <h2>
         <?php
-            echo "Maksimalt volum: $max_volum cm³ ved høyde: $optimal_hoyde cm";
+            echo "Maksimalt volum: $max_volum cm3  ved høyde: $optimal_hoyde cm";
         ?>
     </h2>
 </body>
