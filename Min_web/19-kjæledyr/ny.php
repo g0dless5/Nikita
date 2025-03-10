@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css?v=1">
+    <script src="js.js"></script>
     <title>Registrer nytt kjæledyr</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
             <label for="kjonn">Kjønn: </label><br><br>
             <input type="text" name="kjonn" required><br><br>
 
-            <input type="submit" name="ny_kjaledyr" value="Legg til kjæledyr">
+            <input class="green" type="submit" name="ny_kjaledyr" value="Legg til kjæledyr">
         </form>
     </main>
 </body>

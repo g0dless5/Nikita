@@ -24,30 +24,30 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['merkenummer'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css?v=1">
     <script src="js.js"></script>
-    <title>Rediger kjæledyr</title>
+    <title>Slett kjæledyr</title>
 </head>
 <body>
     <header>
-        <p>Rediger kjæledyr</p>
+        <p>Slett kjæledyr</p>
     </header>
     <main>
-        <form action="rediger_bekreft.php" method="post">
+        <form action="slett_bekreft.php" method="post">
             <label for="merkenummer">Merkenummer: </label><br><br>
             <input type="text" name="merkenummer" value="<?php echo $kjaledyr['merkenummer']; ?>" readonly required><br><br>
 
             <label for="navn">Navn: </label><br><br>
-            <input type="text" name="navn" value="<?php echo $kjaledyr['navn']; ?>" required><br><br>
+            <input type="text" name="navn" value="<?php echo $kjaledyr['navn']; ?>" readonly required><br><br>
 
             <label for="art">Art: </label><br><br>
-            <input type="text" name="art" value="<?php echo $kjaledyr['art']; ?>" required><br><br>
+            <input type="text" name="art" value="<?php echo $kjaledyr['art']; ?>" readonly required><br><br>
 
             <label for="fodselsdato">Fødselsdato: </label><br><br>
-            <input type="date" name="fodselsdato" value="<?php echo $kjaledyr['fodselsdato']; ?>" required><br><br>
+            <input type="date" name="fodselsdato" value="<?php echo $kjaledyr['fodselsdato']; ?>" readonly required><br><br>
 
             <label for="kjonn">Kjønn: </label><br><br>
-            <input type="text" name="kjonn" value="<?php echo $kjaledyr['kjonn']; ?>" required><br><br>
+            <input type="text" name="kjonn" value="<?php echo $kjaledyr['kjonn']; ?>" readonly required><br><br>
 
-            <input class="green" type="submit" name="rediger_kjaledyr" value="Lagre endringer">
+            <input id="slett" type="submit" name="slett_kjaledyr" value="Slett">
         </form>
     </main>
 </body>

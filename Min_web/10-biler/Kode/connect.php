@@ -14,7 +14,7 @@ try
     {
     $pdo = new PDO("mysql:host=$host;dbname=$database",$brukernavn,$passord);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Vellykket oppkobling til MySql!<br>";
+    echo "Vellykket oppkobling til MySql!<br>";
     }
 // Dersom ikke forbindelsen settes opp korrekt gir "catch" en feilmelding
 catch(PDOException $e)

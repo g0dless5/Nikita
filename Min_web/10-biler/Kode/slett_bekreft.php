@@ -3,22 +3,14 @@
 //Koble til databasen
 include "connect.php";
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ny_bil']))
+if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['slett_bil']))
     {
     $regnr = $_POST['regnr'];
-    $merke = $_POST['merke'];
-    $type = $_POST['type'];
-    $farge = $_POST['farge'];
-    $aar = $_POST['aar'];
-
-    $query = "INSERT INTO biler (regnr,merke,type,farge,aar) VALUE
-    (:regnr,:merke,:type,:farge,:aar)";
+    
+    $query = "DELETE FROM biler WHERE regnr = :regnr";
+    
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":regnr",$regnr);
-    $stmt->bindParam(":merke",$merke);
-    $stmt->bindParam(":type",$type);
-    $stmt->bindParam(":farge",$farge);
-    $stmt->bindParam(":aar",$aar);
     $stmt->execute();
     
     }
@@ -39,7 +31,7 @@ else
 </head>
 <body>
     <header>
-        <p>Registrer ny bil</p>
+        <p>Slett bil</p>
 
     </header>
 
@@ -47,12 +39,12 @@ else
         <?php
         if ($stmt)
             {
-            echo "<p>Bilen er blitt lagt til!</p>";
+            echo "<p>Bilen er blitt slettet!</p>";
 
             }
         else
             {
-            echo "<p>Det oppsto en feil. Bilen ble ikke lagt til</p>";    
+            echo "<p>Det oppsto en feil. Bilen ble ikke slettet</p>";    
             }    
 
 

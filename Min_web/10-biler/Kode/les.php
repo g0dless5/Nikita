@@ -37,6 +37,7 @@ $biler = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Farge</th>
                         <th>År</th>
                         <th>Rediger</th>
+                        <th>Slett</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@ $biler = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo $bil['farge']; ?></td>
                             <td><?php echo $bil['aar']; ?></td>
                             <td><a href="rediger.php?regnr=<?php echo $bil['regnr']; ?>">Rediger</a></td>
+                            <td><a id="slett" href="slett.php?regnr=<?php echo $bil['regnr']; ?>">Slett</a></td>
                         </tr>
                         <?php } ?>
 

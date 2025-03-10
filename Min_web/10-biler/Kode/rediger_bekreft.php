@@ -1,72 +1,64 @@
 <?php
 
-//Henter forbindelses-streng
-include 'connect.php';
+//Koble til databasen
+include "connect.php";
 
-
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['rediger_bil'])) 
+if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['rediger_bil']))
     {
-       
     $regnr = $_POST['regnr'];
     $merke = $_POST['merke'];
     $type = $_POST['type'];
     $farge = $_POST['farge'];
     $aar = $_POST['aar'];
-   
 
-    $query = "UPDATE biler SET merke = :merke, type = :type, farge = :farge, aar = :aar WHERE regnr = :regnr" ;
+    $query = "UPDATE biler SET merke = :merke ,type = :type ,farge = :farge, aar = :aar
+    WHERE regnr = :regnr";
     
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":regnr", $regnr);
-    $stmt->bindParam(":merke", $merke);
-    $stmt->bindParam(":type", $type);
-    $stmt->bindParam(":farge", $farge);
-    $stmt->bindParam(":aar", $aar);
+    $stmt->bindParam(":regnr",$regnr);
+    $stmt->bindParam(":merke",$merke);
+    $stmt->bindParam(":type",$type);
+    $stmt->bindParam(":farge",$farge);
+    $stmt->bindParam(":aar",$aar);
     $stmt->execute();
     
-
     }
 else
     {
-    $stmt = 0;    
-    }    
-?>    
+        $stmt = 0;
+    }  
 
+?>    
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='./css/style.css' rel='stylesheet' type='text/css'>
-    
-    <title>Min CRM</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Min bil</title>
 </head>
 <body>
-    <?php// include 'meny.php';?>
     <header>
-        <p>Oppdater bil<br></p>
+        <p>Oppdater bil</p>
+
     </header>
-    
+
     <main>
         <?php
-        if($stmt) 
+        if ($stmt)
             {
-            echo '<p>Bilen er blitt endret!</p>';
+            echo "<p>Bilen er blitt endret!</p>";
+
             }
         else
             {
-            echo '<p id="slett">Det oppsto en feil! Bilen ble ikke endret!</p>';
+            echo "<p>Det oppsto en feil. Bilen ble ikke endret</p>";    
             }    
-    
-       
+
+
         ?>
-             
     </main>
-        
-    <footer>
-        <?php // include 'footer.php';?>  
-    </footer>
+    
 </body>
-</html>
+</html>    
