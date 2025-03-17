@@ -3,6 +3,8 @@
 // Koble til databasen
 include "connect.php";
 
+include "meny.php";
+
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['rediger_medlem'])) {
     $m_nr = $_POST['m_nr'];
     $fornavn = $_POST['fornavn'];
@@ -15,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['rediger_medlem'])) {
     $mail = $_POST['mail'];
     $betalt = $_POST['betalt'];
 
-    $query = "UPDATE medlemmer SET fornavn = :fornavn, etternavn = :etternavn, adresse = :adresse, postnr = :postnr, poststed = :poststed, fodt = :fodt, telefon = :telefon, mail = :mail, betalt = :betalt WHERE m_nr = :m_nr";
+    $query = "UPDATE medlem SET fornavn = :fornavn, etternavn = :etternavn, adresse = :adresse, postnr = :postnr, poststed = :poststed, fodt = :fodt, telefon = :telefon, mail = :mail, betalt = :betalt WHERE m_nr = :m_nr";
     
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":m_nr", $m_nr);
@@ -55,5 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['rediger_medlem'])) {
         }
         ?>
     </main>
+    <script src="js.js"></script>
 </body>
 </html>

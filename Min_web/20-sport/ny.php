@@ -1,3 +1,6 @@
+<?php 
+include "meny.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +51,6 @@
             <input type="submit" name="ny_medlem" value="Legg til medlem">
         </form>
     </main>
-  
+    <script src="js.js"></script>
 </body>
 </html>

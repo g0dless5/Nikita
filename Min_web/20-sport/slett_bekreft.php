@@ -3,10 +3,11 @@
 // Koble til databasen
 include "connect.php";
 
+include "meny.php";
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['slett_medlem'])) {
     $m_nr = $_POST['m_nr'];
     
-    $query = "DELETE FROM medlemmer WHERE m_nr = :m_nr";
+    $query = "DELETE FROM medlem WHERE m_nr = :m_nr";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":m_nr", $m_nr);
     $stmt->execute();
@@ -36,5 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['slett_medlem'])) {
         }
         ?>
     </main>
+    <script src="js.js"></script>
 </body>
 </html>

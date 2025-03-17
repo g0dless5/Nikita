@@ -2,7 +2,7 @@
 
 // Koble til databasen
 include "connect.php";
-
+include "meny.php";
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ny_medlem'])) {
     $m_nr = $_POST['m_nr'];
     $fornavn = $_POST['fornavn'];
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ny_medlem'])) {
     $mail = $_POST['mail'];
     $betalt = $_POST['betalt'];
 
-    $query = "INSERT INTO medlemmer (m_nr, fornavn, etternavn, adresse, postnr, poststed, fodt, telefon, mail, betalt) 
+    $query = "INSERT INTO medlem (m_nr, fornavn, etternavn, adresse, postnr, poststed, fodt, telefon, mail, betalt) 
               VALUES (:m_nr, :fornavn, :etternavn, :adresse, :postnr, :poststed, :fodt, :telefon, :mail, :betalt)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":m_nr", $m_nr);
@@ -57,5 +57,6 @@ else {
         }
         ?>
     </main>
+    <script src="js.js"></script>
 </body>
 </html>

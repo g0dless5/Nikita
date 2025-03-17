@@ -1,7 +1,7 @@
 <?php	
 // Kobler til databasen
 include "connect.php";
-
+include "meny.php";
 //Prosedyre for å lese
 $query = "SELECT m_nr, fornavn, etternavn, adresse, postnr, poststed, fodt, telefon, mail, betalt FROM medlem";
 $stmt = $pdo->prepare($query);
@@ -61,7 +61,7 @@ $medlem = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                         <?php } ?>
 
-
+                        <script src="js.js"></script>
                 </tbody>
 
 

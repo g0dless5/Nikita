@@ -2,11 +2,11 @@
 
 // Koble til databasen
 include "connect.php";
-
+include "meny.php";
 if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['m_nr'])) {
     $m_nr = $_GET['m_nr'];
     
-    $query = "SELECT m_nr, fornavn, etternavn, adresse, postnr, poststed, fodt, telefon, mail, betalt FROM medlemmer WHERE m_nr = :m_nr";
+    $query = "SELECT m_nr, fornavn, etternavn, adresse, postnr, poststed, fodt, telefon, mail, betalt FROM medlem WHERE m_nr = :m_nr";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":m_nr", $m_nr);
     $stmt->execute();
@@ -66,5 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['m_nr'])) {
             <input type="submit" name="rediger_medlem" value="Lagre endringer">
         </form>
     </main>
+    <script src="js.js"></script>
 </body>
 </html>
